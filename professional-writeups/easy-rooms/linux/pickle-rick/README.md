@@ -26,7 +26,7 @@ nmap -sV -T4 10.114.151.146 -p-
 
 Сканирование выдало два порта. `SSH` на 22-ом и сайт `http Apache` на 80-ом.
 
-В исходном коде страницы был обнаружен комментарий `Username: R1ckRul3s`. Предположительно, это `username`.
+В исходном коде страницы был обнаружен комментарий Username: `R1ckRul3s`. Предположительно, это `username`.
 
 Сканирую сайт на поиск скрытых директорий и файлов:
 
@@ -38,13 +38,13 @@ gobuster dir -u http://10.114.151.146 -w /usr/share/wordlists/dirb/common.txt -x
 
 В файле `robots.txt` был обнаружен комментарий `Wubbalubbadubdub`.
 
-Зайдя в `http://10.114.151.146` я ввёл *username:* `R1ckRul3s`, *пароль:* Wubbalubbadubdub и смог войти. 
+Зайдя в `http://10.114.151.146` я ввёл *username:* `R1ckRul3s`, *пароль:* `Wubbalubbadubdub` и смог войти, что является **Security Misconfiguration** (A02 из OWASP Top 10 2025-го года)
 
 ![Login page](images/LoginPage.jpg)
 
-У меня появился доступ к командной панели. Получаю `reverse-shell`:
+В веб-интерфейсе `/portal.ph`p была обнаружена уязвимость **OS Command Injection** (A03 из OWASP Top 10 2025-го года). Приложение выполняло системные команды, введенные пользователем, не проводя их очистку. Это позволило выполнить команду `bash -c ...` и получить `reverse shel`l от имени `www-data`.
 
-На kali:
+Открываю порт на kali:
 
 ```bash
 nc -lvp 4444
@@ -72,11 +72,13 @@ pwd
 sudo -l
 ```
 
-Я - `www-data` В `/var/www/html`. 
+Я - `www-data`; в - `/var/www/html`. 
 
 ![Sudo list](images/sudoList.jpg)
 
-У меня есть права `sudo` без ввода пароля ((ALL) NOPASSWD: ALL) . Получаю `root`:
+У меня есть права `sudo` без ввода пароля ((ALL) NOPASSWD: ALL) Это критическая ошибка конфигурации *(Security Misconfiguration)*, которая позволяет любому пользователю мгновенно повысить привилегии до root. 
+
+Получаю `root`:
 
 ```bash
 sudo su
@@ -96,13 +98,7 @@ ls -la /var/www/html
 cat /var/www/html/Sup3rS3cretPickl3Ingred.txt
 ```
 
-Нахожу первый флаг. Ищу второй флаг:
-
-```bash
-find / -name "*flag*" 2>/dev/null
-```
-
-Меняю синтаксис, ищу второй флаг по другому:
+Нахожу первый флаг. Поиск по стандартному шаблоку `find` не дал результатов, поэтому я расширил критерии поиска до *ingredient* (учитывая тематику комнаты)
 
 ```bash
 find / -name "*ingredient*" 2>/dev/null
@@ -134,4 +130,4 @@ cat /root/3rd.txt
 1. **Убрать комментарий в коде основной страницы с username.**
 2. **Поменять пароль и убрать его из robots.txt.**
 3. **Использовать правило минимальных привилегий для www-data.**
-4.  **Запретить использование системных команд из веб-интерфейса.**
+4.  **Отключить выполнение системных команд из веб-интерфейса (CWE-78: OS Command Injection)**
