@@ -1,14 +1,14 @@
-# TryHackMe: Pickle Rick.
+# TryHackMe: Pickle Rick
 
 *Дата: 21.10.2026*
 
-### Сложность: Easy.
+### Сложность: Easy
 
-**Мой IP: 192.168.166.222.**
+**Мой IP: 192.168.166.222**
 
-**IP Цели: 10.114.151.146.**
+**IP Цели: 10.114.151.146**
 
-**Инструменты: nmap, gobuster, netcat, bash, sudo.**
+**Инструменты: nmap, gobuster, netcat, bash, sudo**
 
 ---
 
