@@ -42,7 +42,7 @@ gobuster dir -u http://10.114.151.146 -w /usr/share/wordlists/dirb/common.txt -x
 
 ![Login page](images/LoginPage.jpg)
 
-В веб-интерфейсе `/portal.php` была обнаружена уязвимость **OS Command Injection** (A03 из OWASP Top 10 2025-го года). Приложение выполняло системные команды, введенные пользователем, не проводя их очистку. Это позволило выполнить команду `bash -c ...` и получить `reverse shell` от имени `www-data`.
+В веб-интерфейсе `/portal.php` была обнаружена уязвимость **OS Command Injection** (A05 из OWASP Top 10 2025-го года). Приложение выполняло системные команды, введенные пользователем, не проводя их очистку. Это позволило выполнить команду `bash -c ...` и получить `reverse shell` от имени `www-data`.
 
 Открываю порт на kali:
 
@@ -72,7 +72,7 @@ pwd
 sudo -l
 ```
 
-Я - `www-data`; в - `/var/www/html`. 
+Я — `www-data`, нахожусь в `/var/www/html`.
 
 ![Sudo list](images/sudoList.jpg)
 
