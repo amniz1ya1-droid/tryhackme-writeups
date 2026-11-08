@@ -95,7 +95,7 @@ exploit
 whoami
 ```
 
-![whoami results](images/whoami-results.jgp)
+![whoami results](images/whoami-results.jpg)
 
 Мы - `System`, высшее что можно получить. Теперь давайте выполнять цели, а принцип работы эксплоиты я напишу в конце
 
