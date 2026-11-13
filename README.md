@@ -1,4 +1,4 @@
-### Райтапы в TryHackMe
+### WriteUps в TryHackMe
 
 Прямо здесь я пишу все свои райтапы Easy, Medium, Hard и Insane машинок на [TryHackMe](https://tryhackme.com/dashboard) Добро пожаловать!
 
