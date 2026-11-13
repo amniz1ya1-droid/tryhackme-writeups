@@ -5,5 +5,3 @@
 [Мой Telegram:](https://t.me/Amniz1ya)
 
 [TryHackMe Профиль:](https://tryhackme.com/p/amniz1ya1)
-
-*discord:* **amniz1ya**
