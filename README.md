@@ -1,9 +1,9 @@
-### Writeups в TryHackMe
+### Райтапы в TryHackMe
 
-Прямо здесь я пишу все свои writeup-ы машинок Easy, Medium, Hard и Insane уровня на TryHackMe. Добро пожаловать!
+Прямо здесь я пишу все свои райтапы Easy, Medium, Hard и Insane машинок на [TryHackMe](https://tryhackme.com/dashboard) Добро пожаловать!
 
-https://t.me/Amniz1ya **telegram**
+[Мой Telegram:](https://t.me/Amniz1ya)
 
-https://tryhackme.com/p/amniz1ya1 **TryHackMe профиль**
+[TryHackMe Профиль:](https://tryhackme.com/p/amniz1ya1)
 
 *discord:* **amniz1ya**
